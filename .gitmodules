@@ -1,0 +1,6 @@
+[submodule "plugins/scm-plugin-test"]
+	path = plugins/scm-plugin-test
+	url = git@github.com:willwoodlief/scm-plugin-test.git
+[submodule "plugins/scm-plugin-sample-theming"]
+	path = plugins/scm-plugin-sample-theming
+	url = git@github.com:willwoodlief/scm-plugin-sample-theming.git

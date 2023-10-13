@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Requests;
+
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Validation\Rule;
+
+class InvoiceSaveRequest extends FormRequest
+{
+
+
+
+    /**
+     * Get data to be validated from the request.
+     *
+     * @return array
+     */
+    public function validationData()
+    {
+        return parent::validationData();
+    }
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'project_id' => ['integer','required'],
+            'number' => ['integer','required'],
+            'amount' => ['numeric','required'],
+            'date' => ['date','required'],
+            'file' => ['file','required','mimes:jpg,webp,png,pdf,txt,doc,xcl','max:10240'],
+
+        ];
+    }
+}
