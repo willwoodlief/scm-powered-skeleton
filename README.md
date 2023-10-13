@@ -127,9 +127,11 @@ When cloning
 
     git clone --recursive [URL to Git repo]
 
-If already cloned
+If already cloned, then this command will pull in the subrepos
 
     git submodule update --init
+
+When later just pulling , after one of the above subrepo initialization done 
 
     # pull all changes in the repo including changes in the submodules
     git pull --recurse-submodules
