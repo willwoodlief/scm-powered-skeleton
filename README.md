@@ -118,4 +118,25 @@ If using docker , then an alias that works for me is (put in the .bashrc if linu
 
 Then I just call phpdoc at the project folder
 
+# The sample theme plugin 
+
+The sample theme plugin can be installed as a submodule. For a tutorial on submodules see 
+https://www.atlassian.com/git/tutorials/git-submodule
+
+When cloning
+
+    git clone --recursive [URL to Git repo]
+
+If already cloned
+
+    git submodule update --init
+
+    # pull all changes in the repo including changes in the submodules
+    git pull --recurse-submodules
+
+    # pull all changes for the submodules
+    git submodule update --remote
+
+
+
 
