@@ -144,14 +144,15 @@
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scm.html">Scm</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/scm-pluginsampletheming.html">PluginSampleTheming</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/scm-pluginsampletheming-models.html">Models</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    PluginLogic
+    UrlProjectFile
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/App-Plugins-Plugin.html"><abbr title="\App\Plugins\Plugin">Plugin</abbr></a>
+        extends <abbr title="\App\Helpers\Projects\ProjectFile">ProjectFile</abbr>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -170,15 +171,22 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/PluginLogic.php"><a href="files/plugins-scm-plugin-sample-theming-src-pluginlogic.html"><abbr title="plugins/scm-plugin-sample-theming/src/PluginLogic.php">PluginLogic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php"><a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html"><abbr title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php">UrlProjectFile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">This is where the plugin registers its listeners and hooks up the code to deal with notices sent to those listeners</p>
+            <p class="phpdocumentor-summary">This shows how a ProjectFile can be extended to allow for remote content, or to handle files differently than the core logic</p>
 
-    <section class="phpdocumentor-description"><p>It has some simple logic to demonstrate how to listen to one page being run (the dashboard), and has an initialize() function that is run on plugin startup</p>
+    <section class="phpdocumentor-description"><p>This class is used in the demonstration of the @see ModelActions::ALL_PROJECT_FILE_EVENTS</p>
+<p>When calling the parent constructor, Derived classes that are handling resources not on the file system,
+should pass in null for the first two params : but pass in the file extension for the third</p>
+<p>Then then derived class can fill in the file_name, which is for display purposes, and should not include the extension (so cat and not cat.gif),
+the file size (in mb), the unix timestamp for the file date, a human readable date/time string</p>
+<p>If the derived class is storing the file outside of the website's regular upload file directory, then it should also overload the function of getPublicFilePath()</p>
+<p>A derived class should also overload the deleteProjectFile()</p>
+<p>When its time for the file to be deleted, either by user action or when a project is deleted, then the class's deleteProjectFile will be called</p>
 </section>
 
 
@@ -187,7 +195,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -201,38 +209,41 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#property_onDashboard">$onDashboard</a>
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#property_url">$url</a>
     <span>
-                        &nbsp;: bool            </span>
+                        &nbsp;: string|null            </span>
 </dt>
-<dd>An action listener sets this bool value based if the laravel framework is currently serving the dashboard page</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#method___construct">__construct()</a>
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Sets the dashboard bool to false</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#method_initialize">initialize()</a>
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_deleteProjectFile">deleteProjectFile()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Runs once at plugin startup, registers some listeners</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_getPublicFilePath">getPublicFilePath()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
 
     </dl>
 
@@ -245,7 +256,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -255,27 +266,26 @@
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_onDashboard">
-        $onDashboard
-        <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#property_onDashboard" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_url">
+        $url
+        <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#property_url" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/PluginLogic.php"><a href="files/plugins-scm-plugin-sample-theming-src-pluginlogic.html"><abbr title="plugins/scm-plugin-sample-theming/src/PluginLogic.php">PluginLogic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php"><a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html"><abbr title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php">UrlProjectFile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">An action listener sets this bool value based if the laravel framework is currently serving the dashboard page</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$onDashboard</span>
-     = <span class="phpdocumentor-signature__default-value">false</span></code>
+        <span class="phpdocumentor-signature__type">string|null</span>
+    <span class="phpdocumentor-signature__name">$url</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
     
@@ -287,7 +297,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -298,21 +308,68 @@
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/PluginLogic.php"><a href="files/plugins-scm-plugin-sample-theming-src-pluginlogic.html"><abbr title="plugins/scm-plugin-sample-theming/src/PluginLogic.php">PluginLogic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php"><a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html"><abbr title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php">UrlProjectFile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sets the dashboard bool to false</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file_name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$url</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$file_name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteProjectFile">
+        deleteProjectFile()
+        <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_deleteProjectFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php"><a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html"><abbr title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php">UrlProjectFile.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">deleteProjectFile</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -328,129 +385,34 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initialize">
-        initialize()
-        <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#method_initialize" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getPublicFilePath">
+        getPublicFilePath()
+        <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_getPublicFilePath" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/PluginLogic.php"><a href="files/plugins-scm-plugin-sample-theming-src-pluginlogic.html"><abbr title="plugins/scm-plugin-sample-theming/src/PluginLogic.php">PluginLogic.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php"><a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html"><abbr title="plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php">UrlProjectFile.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Runs once at plugin startup, registers some listeners</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">getPublicFilePath</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>here all the listeners are anonymous functions, but for more complicated stuff could easily be functions or classes to contain the logic of the event</p>
-<p>Registers a listener to change the logo used in the menu</p>
-<pre class="prettyprint"><code class="language-php">Eventy::addFilter(Plugin::FILTER_LOGO_IMAGE, function( string $what)  {
-     Utilities::markUnusedVar($what);
-     return ScmSampleTheming::getPluginRef()-&gt;getResourceUrl('images/loading-coffee.gif');
-
-}, 20, 1);
-</code></pre>
-<p>Registers a listener to change the blade that has the page loading image, and to change the birthday blade
-Eventy::addFilter(Plugin::FILTER_SET_VIEW, function( string $bade_name) {
-if ($bade_name === 'layouts.app.preloader') {
-return ScmSampleTheming::getBladeRoot().'::override/preloader';
-}</p>
-<pre class="prettyprint"><code class="prettyprint"> if ($bade_name === 'employee.parts.employee_birthdays') {
-     return ScmSampleTheming::getBladeRoot().'::override/birthdays';
- }
- return $bade_name;
-</code></pre>
-<p>}, 20, 1);</p>
-<pre class="prettyprint"><code class="language-php">
-</code></pre>
-<p>Registers a listener to add something to the top menu</p>
-<pre class="prettyprint"><code class="language-php"> Eventy::addFilter(Plugin::FILTER_FRAME_END_TOP_MENU, function( string $extra_menu_stuff) {
-     $item = view(ScmSampleTheming::getBladeRoot().'::content-for-filters.top-menu-item')-&gt;render();
-     return $extra_menu_stuff.&quot;\n&quot;. $item;
-});
-</code></pre>
-<p>Registers a listener to add a new stylesheet</p>
-<pre class="prettyprint"><code class="language-php">Eventy::addFilter(Plugin::FILTER_FRAME_EXTRA_HEAD, function( string $stuff) {
-
-     $link = ScmSampleTheming::getPluginRef()-&gt;getResourceUrl('css/sample-theming-plugin.css').&quot;?&quot;.time();
-     return $stuff.
-     &quot;&lt;link href='$link' rel='stylesheet'&gt;&quot;;
- }, 20, 1);
-</code></pre>
-<p>Register a listener to see when we are on the dashboard page, and set the bool value if we are</p>
-<pre class="prettyprint"><code class="language-php">Eventy::addAction(Plugin::ACTION_ROUTE_STARTED,function (\Illuminate\Http\Request $request) {
-     Utilities::markUnusedVar($request);
-     $route_name = Route::getCurrentRoute()-&gt;getName();
-     if ($route_name === 'dashboard') {
-         $this-&gt;onDashboard = true;
-     } else {
-         $this-&gt;onDashboard = false;
-     }
-});
-</code></pre>
-<p>Registers a listener to add a new blade to the dashboard at the bottom, to show output from a webservice (the quote service)
-It is here we use the bool value for if we are on the dashboard</p>
-<pre class="prettyprint"><code class="language-php">Eventy::addFilter(Plugin::FILTER_FRAME_BOTTOM_PANEL, function( string $stuff) {
-     if ($this-&gt;onDashboard) {
-         $quote = ScmSampleTheming::getQuote();
-         $item = view(ScmSampleTheming::getBladeRoot().'::content-for-filters.quote')-&gt;with('quote',$quote)-&gt;render();
-         return $stuff. &quot;\n&quot;.$item;
-     }
-     return $stuff;
-}, 20, 1);
-</code></pre>
-<p>Register an action to make something new in the database when a new invoice is created.
-Of course, we could also update this new data when invoices are changed or deleted</p>
-<pre class="prettyprint"><code class="language-php">Eventy::addAction(Plugin::ACTION_MODEL_CREATED.Plugin::ACTION_MODEL_INVOICE , function (Invoice $invoice)
-{
-     $invoice_attributes = new ScmPluginSampleInventory();
-     $invoice_attributes-&gt;invoice_id = $invoice-&gt;id;
-     $invoice_attributes-&gt;invoice_importance = ScmPluginSampleInventory::STATUS_NORMAL;
-     $invoice_attributes-&gt;invoice_color_code = ScmPluginSampleInventory::COLOR_CODES[ScmPluginSampleInventory::STATUS_NORMAL];
-     $invoice_attributes-&gt;save();
-}, 10, 1);
-</code></pre>
-<p>Register listeners to add a new column to the invoice table based on the something new we created.</p>
-<pre class="prettyprint"><code class="language-php">     Eventy::addFilter(Plugin::FILTER_INVOICE_TABLE_HEADERS, function(array $column_array)  {
-         $column_array['invoice-importance'] = &quot;Sample Plugin Demo&quot;;
-         return $column_array;
-
-     }, 5, 1);
-
-
-Eventy::addFilter(Plugin::FILTER_INVOICE_TABLE_HEADERS . Plugin::TABLE_COLUMN_SUFFIX,
-function(string $html, string $column, Invoice $invoice)
-{
-     $item = '';
-     if ($column === 'invoice-importance') {
-         $invoice_attributes = ScmPluginSampleInventory::where('invoice_id',$invoice-&gt;id)-&gt;first();
-         if (!$invoice_attributes) {
-             $invoice_attributes = new ScmPluginSampleInventory();
-             $invoice_attributes-&gt;invoice_id = $invoice-&gt;id;
-             $invoice_attributes-&gt;invoice_importance = ScmPluginSampleInventory::STATUS_NORMAL;
-             $invoice_attributes-&gt;invoice_color_code = ScmPluginSampleInventory::COLOR_CODES[ScmPluginSampleInventory::STATUS_NORMAL];
-             $invoice_attributes-&gt;save();
-         }
-         $item = view(ScmSampleTheming::getBladeRoot().'::content-for-filters.invoice-attribute-cell')
-         -&gt;with('setting',$invoice_attributes)
-         -&gt;render();
-     }
-     return $html. &quot;\n&quot;.$item;
-},
-5, 3);
-</code></pre>
-</section>
-
+    
     
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
 </article>
             </section>
 
@@ -458,7 +420,7 @@ function(string $html, string $column, Invoice $invoice)
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/plugins/scm-plugin-sample-theming/src/PluginLogic.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -557,23 +519,24 @@ function(string $html, string $column, Invoice $invoice)
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/Scm-PluginSampleTheming-PluginLogic.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/Scm-PluginSampleTheming-PluginLogic.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/Scm-PluginSampleTheming-PluginLogic.html#property_onDashboard">$onDashboard<a href="classes/Scm-PluginSampleTheming-PluginLogic.html"></li>
+                                                    <li><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#property_url">$url<a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/Scm-PluginSampleTheming-PluginLogic.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/Scm-PluginSampleTheming-PluginLogic.html#method_initialize">initialize()</a></li>
+                                            <li><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_deleteProjectFile">deleteProjectFile()</a></li>
+                                            <li><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_getPublicFilePath">getPublicFilePath()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -593,7 +556,7 @@ function(string $html, string $column, Invoice $invoice)
     </section>
 </section>
         </div>
-        <a href="classes/Scm-PluginSampleTheming-PluginLogic.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

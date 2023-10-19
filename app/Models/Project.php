@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use TorMorten\Eventy\Facades\Eventy;
 
 /**
@@ -279,6 +280,11 @@ class Project extends Model
             $file->storeAs($this->get_document_directory(), $file->getClientOriginalName(),['visibility' => 'public']);
             $relative_path = $this->get_document_directory() . DIRECTORY_SEPARATOR . $file->getClientOriginalName();
             $full_path = storage_path('app/'.$relative_path);
+            try {
+                Eventy::action(Plugin::ACTION_ON_UPLOADED_PROJECT_FILE, $full_path);
+            } catch (\Exception $e) {
+                Log::warning("Plugin actions threw an exception on ACTION_ON_UPLOADED_PROJECT_FILE ". $e->getMessage());
+            }
             return $full_path;
 
         } catch (\Exception $what) {
@@ -305,10 +311,8 @@ class Project extends Model
     public function delete_project_file(string $file_name) {
         foreach ($this->get_project_files() as $project_file) {
             if ($file_name === $project_file->getFileNameWithExtention()) {
-                if (is_readable($project_file->getFullFilePath())) {
-                    unlink($project_file->getFullFilePath());
-                    return true;
-                }
+                $project_file->deleteProjectFile();
+                return true;
             }
         }
         return false;
@@ -374,10 +378,7 @@ class Project extends Model
 
     public function cleanup_project_resources() {
         foreach ($this->get_project_files() as $what_file) {
-            $full_path = $what_file->getFullFilePath();
-            if (file_exists($full_path)) {
-                unlink($full_path);
-            }
+            $what_file->deleteProjectFile();
         }
     }
 

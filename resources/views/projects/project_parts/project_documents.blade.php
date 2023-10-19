@@ -42,10 +42,12 @@
 
                     <tr>
                         <td>
-                            {{$project_file->getFileExtension()}}
+                            <img
+                                src='{{asset("app-assets/icon/fontawesome6/svgs/solid/".$project_file->getFileIcon())}}'
+                                alt='{{$project_file->getFileExtension()}}' width='20px'/>
                         </td>
                         <td>
-                            <a href="{{asset($project_file->getPublicFilePath())}}">
+                            <a href="{{$project_file->getPublicFilePath()}}">
                                 {{$project_file->getFileNameWithExtention()}}
                             </a>
                         </td>
@@ -58,7 +60,7 @@
                         @endforeach
                         <td>
                             <div style="font-size: 20px">
-                                <a href="{{asset($project_file->getPublicFilePath())}}" download>
+                                <a href="{{$project_file->getPublicFilePath()}}" @if($project_file->isDownloadableFromThisServer()) download @endif>
                                     <i class="las la-file-download"></i>
                                 </a>
                                 <form method="POST" enctype="multipart/form-data"
@@ -87,7 +89,13 @@
                 </tbody>
 
             </table>
-
+            <script>
+                jQuery(function ($) {
+                    $(`form.will-ask-first-before-deleting-file`).on('submit', function () {
+                        return confirm('Are you sure you want to delete this file?');
+                    });
+                });
+            </script>
 
 
         </div>
@@ -95,3 +103,4 @@
 </div>
 
 @include('projects.project_parts.add_project_file',compact('project'))
+

@@ -256,6 +256,11 @@ Search.appendIndex(
             "summary": "Lists\u0020all\u0020the\u0020different\u0020action\u0020types",
             "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ALL_BASE_ACTIONS_FOR_MODELS"
         },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AACTION_MODEL_NAME_USER_ROLE",
+            "name": "ACTION_MODEL_NAME_USER_ROLE",
+            "summary": "filter\u0020name\u0020for\u0020the\u0020user\u0020role\u0020model",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ACTION_MODEL_NAME_USER_ROLE"
+        },                {
             "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AACTION_MODEL_NAME_USER",
             "name": "ACTION_MODEL_NAME_USER",
             "summary": "filter\u0020name\u0020for\u0020the\u0020User\u0020model",
@@ -335,6 +340,41 @@ Search.appendIndex(
             "name": "ACTION_INVOICE_PAYMENT",
             "summary": "Action\u0020called\u0020when\u0020an\u0020invoice\u0020has\u0020a\u0020payment\u0020applied\u0020to\u0020it\u0020in\u0020the\u0020webpage",
             "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ACTION_INVOICE_PAYMENT"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AALL_PROJECT_FILE_EVENTS",
+            "name": "ALL_PROJECT_FILE_EVENTS",
+            "summary": "Project\u0020files\u0020can\u0020have\u0020different\u0020sources\u0020and\u0020ways\u0020of\u0020storage\u0020and\u0020downloading\u0020and\u0020deleting",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ALL_PROJECT_FILE_EVENTS"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AACTION_START_DISCOVERY_PROJECT_FILES",
+            "name": "ACTION_START_DISCOVERY_PROJECT_FILES",
+            "summary": "This\u0020action\u0020is\u0020fired\u0020before\u0020any\u0020of\u0020the\u0020project\u0020files\u0020are\u0020discovered.\u0020It\u0020can\u0020help\u0020set\u0020up\u0020resources\u0020needed\u0020to\u0020edit\u0020the\u0020file\u0020list\u0020or\u0020augment\u0020the\u0020list",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ACTION_START_DISCOVERY_PROJECT_FILES"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AFILTER_DISCOVER_PROJECT_FILE",
+            "name": "FILTER_DISCOVER_PROJECT_FILE",
+            "summary": "Filter\u0020called\u0020when\u0020a\u0020file\u0020is\u0020discovered\u0020for\u0020the\u0020Project,\u0020before\u0020showing\u0020the\u0020list\u0020of\u0020files\nTo\u0020remove\u0020this\u0020file\u0020from\u0020being\u0020seen,\u0020return\u0020null\u0020in\u0020the\u0020filter\nAlternatively\u0020replace\u0020the\u0020object",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_FILTER_DISCOVER_PROJECT_FILE"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AFILTER_APPEND_PROJECT_FILES",
+            "name": "FILTER_APPEND_PROJECT_FILES",
+            "summary": "Filter\u0020called\u0020to\u0020add\u0020more\u0020project\u0020files\u0020than\u0020the\u0020core\u0020code\u0020finds\u0020at\u0020first\nreturns\u0020an\u0020array\u0020of\u0020project\u0020files\u0020\u0028these\u0020can\u0020be\u0020sorted\u0020with\u0020the\u0020original\u0020list\u0020afterwards\u0029\nIt\u0020can\u0020be\u0020one\u0020or\u0020many\u0020appended\n\u0060\u0060\u0060php\nEventy\u003A\u003AaddFilter\u0028Plugin\u003A\u003AFILTER_APPEND_PROJECT_FILES,\u0020function\u0028\u0020array\u0020\u0024extra_project_files\u0020\u0029\u003A\u0020array\u0020\u007B\n\u0020\u0020\u0020\u0020\u0020\u0024extra_project_files\u005B\u005D\u0020\u003D\u0020new\u0020ChildOfProjectFileClass\u0028\u0024some_initializing_data\u0029\u003B\n\u0020\u0020\u0020\u0020\u0020return\u0020\u0024extra_project_files\n\u007D,\u002020,\u00202\u0029\u003B\n\u0060\u0060\u0060",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_FILTER_APPEND_PROJECT_FILES"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AFILTER_SORT_PROJECT_FILES",
+            "name": "FILTER_SORT_PROJECT_FILES",
+            "summary": "Filter\u0020called\u0020sort\u0020all\u0020the\u0020project\u0020files\u0020before\u0020they\u0020are\u0020displayed,\u0020in\u0020case\u0020these\u0020need\u0020to\u0020be\u0020put\u0020in\u0020a\u0020different\u0020order\nreturns\u0020an\u0020array\u0020of\u0020project\u0020files\u0020that\u0020are\u0020displayed\u0020in\u0020the\u0020order\u0020of\u0020the\u0020array",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_FILTER_SORT_PROJECT_FILES"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AACTION_ON_UPLOADED_PROJECT_FILE",
+            "name": "ACTION_ON_UPLOADED_PROJECT_FILE",
+            "summary": "This\u0020action\u0020is\u0020fired\u0020after\u0020a\u0020new\u0020project\u0020file\u0020is\u0020uploaded\u0020and\u0020saved\u0020to\u0020disk.\u0020The\u0020parameter\u0020is\u0020the\u0020full\u0020file\u0020path\u0020of\u0020the\u0020already\u0020saved\u0020new\u0020file",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ACTION_ON_UPLOADED_PROJECT_FILE"
+        },                {
+            "fqsen": "\\App\\Plugins\\EventConstants\\ModelActions\u003A\u003AACTION_BEFORE_DELETING_PROJECT_FILE",
+            "name": "ACTION_BEFORE_DELETING_PROJECT_FILE",
+            "summary": "This\u0020action\u0020is\u0020fired\u0020before\u0020a\u0020project\u0020file\u0020is\u0020deleted.\u0020The\u0020parameter\u0020is\u0020the\u0020ProjectFile\u0020class\u0020or\u0020derived\u0020class.\u0020Derived\u0020classes\u0020need\u0020to\u0020delete\u0020themselves\u0020if\u0020they\u0020do\u0020not\u0020store\u0020on\u0020the\u0020local\u0020disk,\u0020so\u0020should\u0020delete\u0020those\u0020resources\u0020here\u0020or\u0020when\u0020overriding\u0020the\u0020ProjectFile\u003A\u003AdeleteProjectFile\u0020method.\u0020Files\u0020are\u0020deleted\u0020by\u0020a\u0020user,\u0020or\u0020when\u0020a\u0020project\u0020is\u0020deleted",
+            "url": "classes/App-Plugins-EventConstants-ModelActions.html#constant_ACTION_BEFORE_DELETING_PROJECT_FILE"
         },                {
             "fqsen": "\\App\\Plugins\\EventConstants\\PageFrames",
             "name": "PageFrames",
@@ -955,6 +995,31 @@ Search.appendIndex(
             "name": "fillable",
             "summary": "The\u0020attributes\u0020that\u0020are\u0020mass\u0020assignable.",
             "url": "classes/Scm-PluginSampleTheming-Models-ScmPluginSampleInventory.html#property_fillable"
+        },                {
+            "fqsen": "\\Scm\\PluginSampleTheming\\Models\\UrlProjectFile",
+            "name": "UrlProjectFile",
+            "summary": "This\u0020shows\u0020how\u0020a\u0020ProjectFile\u0020can\u0020be\u0020extended\u0020to\u0020allow\u0020for\u0020remote\u0020content,\u0020or\u0020to\u0020handle\u0020files\u0020differently\u0020than\u0020the\u0020core\u0020logic",
+            "url": "classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html"
+        },                {
+            "fqsen": "\\Scm\\PluginSampleTheming\\Models\\UrlProjectFile\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method___construct"
+        },                {
+            "fqsen": "\\Scm\\PluginSampleTheming\\Models\\UrlProjectFile\u003A\u003AgetPublicFilePath\u0028\u0029",
+            "name": "getPublicFilePath",
+            "summary": "",
+            "url": "classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_getPublicFilePath"
+        },                {
+            "fqsen": "\\Scm\\PluginSampleTheming\\Models\\UrlProjectFile\u003A\u003AdeleteProjectFile\u0028\u0029",
+            "name": "deleteProjectFile",
+            "summary": "",
+            "url": "classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#method_deleteProjectFile"
+        },                {
+            "fqsen": "\\Scm\\PluginSampleTheming\\Models\\UrlProjectFile\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html#property_url"
         },                {
             "fqsen": "\\Scm\\PluginSampleTheming\\PluginLogic",
             "name": "PluginLogic",

@@ -121,7 +121,7 @@
                 <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="packages/Application.html" class="-active">Application</a>
+    <a href="packages/Application.html" class="">Application</a>
 </h4>
 
                         </section>
@@ -144,33 +144,33 @@
                                         <ul class="phpdocumentor-breadcrumbs">
     </ul>
 
-    <article class="phpdocumentor-element -package">
-        <h2 class="phpdocumentor-content__title">Application</h2>
+    <article class="phpdocumentor-element -file">
+        <h2 class="phpdocumentor-content__title">UrlProjectFile.php</h2>
 
         
+
+
+
+
+
 <h3 id="toc">
     Table of Contents
-    <a href="packages/Application.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
-    <h4 id="toc-interfaces">
-        Interfaces
-        <a href="packages/Application.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-ActionRoutes.html"><abbr title="\App\Plugins\EventConstants\ActionRoutes">ActionRoutes</abbr></a></dt><dd>There is only one action for the route chosen, fired after the action is determined.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-FilterQuery.html"><abbr title="\App\Plugins\EventConstants\FilterQuery">FilterQuery</abbr></a></dt><dd>Filters for Queries allow the plugins to change the results and data showing on all the pages. Each filter takes as first arg a Illuminate\Database\Eloquent\Builder which it can modify, sometimes it has a second arg which helps given more context to the query. Each of these filters must return a Builder</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-Images.html"><abbr title="\App\Plugins\EventConstants\Images">Images</abbr></a></dt><dd>All Images are filters that accept an image url in the param, and return the same or new url.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-ModelActions.html"><abbr title="\App\Plugins\EventConstants\ModelActions">ModelActions</abbr></a></dt><dd>Model actions have 84 different actions. However these are combinations for each model (13 models) and 6 events. There are easy patterns</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-PageFrames.html"><abbr title="\App\Plugins\EventConstants\PageFrames">PageFrames</abbr></a></dt><dd>All page frames are filters that accept a html string param (actual html), and return the same or new html.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-Tables.html"><abbr title="\App\Plugins\EventConstants\Tables">Tables</abbr></a></dt><dd>Table filters have two different types: The first sets extra columns in a table. The second fills in the content for that new column</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/App-Plugins-EventConstants-Views.html"><abbr title="\App\Plugins\EventConstants\Views">Views</abbr></a></dt><dd>The views has one filter and one action. The filter can swap out any blade used. The action broadcasts when a blade is being used.</dd>    </dl>
 
     <h4 id="toc-classes">
         Classes
-        <a href="packages/Application.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Console-Commands-ListPlugins.html"><abbr title="\App\Console\Commands\ListPlugins">ListPlugins</abbr></a></dt>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Plugins-Plugin.html"><abbr title="\App\Plugins\Plugin">Plugin</abbr></a></dt><dd>The Plugin class can be used as a reference for all the actions and hooks. It implements the constants defined in the EventConstants namespace</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Plugins-PluginRef.html"><abbr title="\App\Plugins\PluginRef">PluginRef</abbr></a></dt><dd>the PluginRef class finds and lists plugins, and manages their resource shortcuts</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Plugins-ScmPackageManifest.html"><abbr title="\App\Plugins\ScmPackageManifest">ScmPackageManifest</abbr></a></dt><dd>This package manifest is used by it replacing the laravel one, that way we can read in the plugin services too, in addition to the normal laravel stuff. We can do it by extending the normal class and rewriting one method</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Plugins-ScmServiceProvider.html"><abbr title="\App\Plugins\ScmServiceProvider">ScmServiceProvider</abbr></a></dt><dd>This service provider replaces the laravel service provider. We run our view factory class instead of the framework one. This allows some view hooks and actions to be called. We can do it by extending the normal class and rewriting one method</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Plugins-ScmView.html"><abbr title="\App\Plugins\ScmView">ScmView</abbr></a></dt><dd>This view does nothing extra, and is a placeholder for future hooks. It is called via the factory class</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/App-Plugins-ScmViewFactory.html"><abbr title="\App\Plugins\ScmViewFactory">ScmViewFactory</abbr></a></dt><dd>This overridden view factory allows some plugin view hooks and actions to be run</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-Controllers-SampleThemeController.html"><abbr title="\Scm\PluginSampleTheming\Controllers\SampleThemeController">SampleThemeController</abbr></a></dt><dd>This is an example controller class in a plugin, its called from the routes and uses the blades with some data that is demonstrated</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-Facades-ScmSampleTheming.html"><abbr title="\Scm\PluginSampleTheming\Facades\ScmSampleTheming">ScmSampleTheming</abbr></a></dt><dd>Plugins do not need any facades, but given this is laravel, this these are convenient to lump some logic together that is needed by the plugin</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-Models-SampleThemeQuote.html"><abbr title="\Scm\PluginSampleTheming\Models\SampleThemeQuote">SampleThemeQuote</abbr></a></dt><dd>This is just a helper class for the web service we use for the quotes</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-Models-ScmPluginSampleInventory.html"><abbr title="\Scm\PluginSampleTheming\Models\ScmPluginSampleInventory">ScmPluginSampleInventory</abbr></a></dt><dd>This is an example model used in the plugin that reads and writes to the new db table we defined in the migrations</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html"><abbr title="\Scm\PluginSampleTheming\Models\UrlProjectFile">UrlProjectFile</abbr></a></dt><dd>This shows how a ProjectFile can be extended to allow for remote content, or to handle files differently than the core logic</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-PluginLogic.html"><abbr title="\Scm\PluginSampleTheming\PluginLogic">PluginLogic</abbr></a></dt><dd>This is where the plugin registers its listeners and hooks up the code to deal with notices sent to those listeners</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-ScmSampleTheming.html"><abbr title="\Scm\PluginSampleTheming\ScmSampleTheming">ScmSampleTheming</abbr></a></dt><dd>This is called from the class Scm\PluginSampleTheming\Facades\ScmSampleTheming</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-ScmSampleThemingProvider.html"><abbr title="\Scm\PluginSampleTheming\ScmSampleThemingProvider">ScmSampleThemingProvider</abbr></a></dt><dd>This plugin uses the https://github.com/spatie/laravel-package-tools library to make the boilerplate laravel for a new service. It is optional, but makes it simpler. But regardless, the plugin needs to extend the Illuminate\Support\ServiceProvider class</dd>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/Scm-PluginSampleTheming-Models-UrlProjectFile.html"><abbr title="\Scm\PluginSampleTheming\Models\UrlProjectFile">UrlProjectFile</abbr></a></dt><dd>This shows how a ProjectFile can be extended to allow for remote content, or to handle files differently than the core logic</dd>    </dl>
+
+
 
 
 
@@ -186,7 +186,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/plugins/scm-plugin-sample-theming/src/Models/UrlProjectFile.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -285,8 +285,7 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                    <li><a href="packages/Application.html#toc-interfaces">Interfaces</a></li>
-                                                                <li><a href="packages/Application.html#toc-classes">Classes</a></li>
+                                                                                                        <li><a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html#toc-classes">Classes</a></li>
                                                                                                                     </ul>
             </li>
 
@@ -308,7 +307,7 @@
     </section>
 </section>
         </div>
-        <a href="packages/Application.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/plugins-scm-plugin-sample-theming-src-models-urlprojectfile.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

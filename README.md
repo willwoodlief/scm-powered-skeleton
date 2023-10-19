@@ -18,7 +18,7 @@
   * if there are missing php extensions, or php version issues, it will tell you then. Need to fix any 
 * run db migrations
   * before running on a non empty database see the section below if migration crashes to prevent issues
-  * these migrations, if never run, can run on an empty database or assume the db to have the struture in the [scmpowered_database.sql](database%2Farchives%2Fscmpowered_database.sql)
+  * these migrations, if never run, can run on an empty database or assume the db to have the struture in the [scmpowered_database.sql](database/archives/scmpowered_database.sql)
   * then run the migrations
     * `php artisan migrate:status`
     * `php artisan migrate`
@@ -107,7 +107,7 @@ This config file will tell the phpdoc tool to look at the plugin code only and t
 When the tool is run at the root folder of this project it will update the docs. These docs are written to
 .phpdoc/build folder and the docs can be opened at .phpdoc/build/index.html 
 
-The finished html file is at [index.html](.phpdoc%2Fbuild%2Findex.html) but there can be hundreds of support files there too.
+The finished html file is at [index.html](.phpdoc/build/index.html) but there can be hundreds of support files there too.
 A softlink can be made at the index.html to make it show up where needed in a public folder.
 
 There are several ways to download or use the tool, as discussed at https://docs.phpdoc.org/3.0/guide/getting-started/installing.html#installation
