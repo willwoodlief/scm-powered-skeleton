@@ -49,7 +49,9 @@
                     <a href="{{route('contractor.edit',['contractor_id'=>$contractor->id])}}" class="btn btn-primary btn-sm me-2">Details</a>
                     <a href="javascript:void(0)" class="btn btn-secondary btn-sm ms-2" >Email</a>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+                @filter(\App\Plugins\Plugin::CONTRACTOR_UNIT_FOOTER,'',$contractor)
+
+            </div> <!-- /card-use-box -->
+        </div> <!-- /card-body -->
+    </div> <!-- /card -->
+</div><!-- /col -->

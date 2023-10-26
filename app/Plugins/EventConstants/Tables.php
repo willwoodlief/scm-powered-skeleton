@@ -6,6 +6,7 @@ namespace App\Plugins\EventConstants;
 
 use App\Helpers\Projects\ProjectFile;
 use App\Models\ConstructionExpense;
+use App\Models\Contractor;
 use App\Models\Employee;
 use App\Models\Invoice;
 use App\Models\Notification;
@@ -340,6 +341,22 @@ interface Tables {
      *  ```
      */
     const FILTER_USER_TABLE_COLUMN = self::FILTER_USER_TABLE_HEADERS.self::TABLE_COLUMN_SUFFIX;
+
+
+    /**
+     * For the contractor unit bottom part, the contractors are not displayed in a table, but this is similar to a display table
+     *
+     *   ```php
+     *    Eventy::addFilter(Plugin::CONTRACTOR_UNIT_FOOTER,
+     *        function(string $html,  \App\Models\Contractor $contractor)
+     *        {
+     *            $item = '<span>hi there</span>';
+     *            return $html. "\n".$item;
+     *        },
+     *        20, 2);
+     *   ```
+     */
+    const CONTRACTOR_UNIT_FOOTER = 'contractor-unit-footer';
 
     /**
      * Lists all the table filters
